@@ -1,0 +1,38 @@
+include /_mixins
+
+doctype html
+html
+  head
+    title Sushi Menu
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet")
+    +stylesheet_link_tag("main")
+    +javascript_include_tag("vendor/all")
+    // +javascript_include_tag("handlebars_templates")
+  body
+    header
+      a.logo(href="/")
+        img(src="/images/logo.png")
+      |
+      .cart
+        a(href="/")
+          span.left Shopping Cart
+          span.right.
+            #[span.count 0]
+            items
+    main
+      #cart
+      #content
+
+    footer
+
+    block content
+
+    // +javascript_script("application")
+    // +javascript_script("models/food")
+    // +javascript_script("collections/menu", "cart")
+    // +javascript_script("views/menu", "item", "cart", "checkout")
+
+    // script.
+    //   App.items = new Items(!{JSON.stringify(menu)});
+
+    // +javascript_script("router")
