@@ -13,6 +13,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// prevent error the "basedir" option is required 
 app.locals.basedir = path.join(__dirname, 'views');
 
 // uncomment after placing your favicon in /public
