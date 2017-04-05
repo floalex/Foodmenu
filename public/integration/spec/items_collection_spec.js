@@ -5,6 +5,6 @@ describe("It has a food menu", function() {
   
   it ("has a menu of food items with the specified attributes", function() {
     var id = 1;
-    expect(this.menu.get(id).toJSON()).toBe(_.findWhere(items_scaffold, { id: id }));
+    expect(this.menu.get(id).toJSON()).toEqual(_.findWhere(items_scaffold, { id: id }));
   });
 });
