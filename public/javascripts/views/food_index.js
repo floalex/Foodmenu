@@ -7,8 +7,14 @@ var foodIndexView = Backbone.View.extend({
     };
   },
   template: App.templates.food_index,
+  events: {
+    "click header": "renderSingleFood"
+  },
+  renderSingleFood: function(e) {
+    var id = Number(this.model.get('id'));
+    router.navigate('menu/' + id, { trigger: true });
+  },
   render: function() {
-    console.log("loading");
     this.$el.html(this.template(this.model.toJSON()));
     this.$el.appendTo(App.el.find("ul"));
   },

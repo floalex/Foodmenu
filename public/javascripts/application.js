@@ -9,6 +9,12 @@ var App = {
   renderAll: function() {
     this.menu.each(this.addFoodIndexView);
   },
+  renderFoodItem: function(id) {
+    var item = this.menu.get(id);
+    new foodItemView({
+      model: item
+    });
+  },
   addFoodIndexView: function(item) {
     new foodIndexView({
       model: item
@@ -28,4 +34,8 @@ var App = {
 
 Handlebars.registerHelper("format_price", function(price) {
   return (+price).toFixed(2);
+});
+
+Handlebars.registerHelper('convert_to_kcal', function(energy) {
+ return Number(energy) * 0.239006;
 });
