@@ -9,7 +9,7 @@ module.exports = function(router) {
   });
   
   router.route("/menu/:id").get(function(req, res) {
-    res.render("index", {
+    res.render("menu", {
       menu_items: Menu.get()
     });
   });

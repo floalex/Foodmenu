@@ -4,7 +4,6 @@ var foodItemView = Backbone.View.extend({
   },
   template: App.templates.food_item,
   render: function() {
-    $("#items").hide();
     this.$el.html(this.template(this.model.toJSON()));
     App.el.html(this.$el);
   },

@@ -12,7 +12,7 @@ var foodIndexView = Backbone.View.extend({
   },
   renderSingleFood: function(e) {
     var id = Number(this.model.get('id'));
-    router.navigate('menu/' + id, { trigger: true });
+    router.navigate('menu/' + id, { trigger: true, replace: false });
   },
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));

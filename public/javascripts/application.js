@@ -2,6 +2,7 @@ var App = {
   templates: JST,
   el: $("#content"),
   indexView: function() {
+    this.index = new IndexView();
     this.renderAll();
     // this.createCart();
     this.bindEvents();

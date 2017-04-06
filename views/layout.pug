@@ -22,7 +22,6 @@ html
     main
       #cart
       #content
-        ul#items
 
     footer
       p This site is for practice purpose only, checkout function won't work.
@@ -32,7 +31,7 @@ html
     +javascript_include_tag("application")
     +javascript_include_tag("models/food")
     +javascript_include_tag("collections/menu", "collections/cart")
-    +javascript_include_tag("views/food_index", "views/food_item", "views/cart", "views/checkout")
+    +javascript_include_tag("views/index", "views/food_index", "views/food_item", "views/cart", "views/checkout")
     script(type="text/javascript").
       App.menu = new Menu(!{JSON.stringify(menu_items)});
     +javascript_include_tag("router")
