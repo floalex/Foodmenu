@@ -19,6 +19,7 @@ var CartView = Backbone.View.extend({
   },
   render: function() {
     if (this.collection.length === 0) { 
+      console.log(this.collection.toJSON());
       $(this.$el).hide();
       return; 
     }

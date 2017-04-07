@@ -48,7 +48,6 @@ var CartItems = Backbone.Collection.extend({
   },
   update: function() {
     this.setTotal().setQuantity();
-    console.log(this);
   },
   initialize: function() {
     this.readStorage();

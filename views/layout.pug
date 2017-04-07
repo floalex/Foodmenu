@@ -34,5 +34,7 @@ html
     +javascript_include_tag("views/index", "views/food_index", "views/food_item", "views/cart", "views/checkout")
     script(type="text/javascript").
       App.menu = new Menu(!{JSON.stringify(menu_items)});
+      App.cart = new CartItems();
+      App.cart.view = new CartView({ collection: App.cart });
     +javascript_include_tag("router")
     block scripts

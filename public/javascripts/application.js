@@ -4,7 +4,6 @@ var App = {
   indexView: function() {
     this.index = new IndexView();
     this.renderAll();
-    this.createCart();
     this.bindEvents();
   },
   renderAll: function() {
@@ -21,20 +20,20 @@ var App = {
       model: item
     });
   },
-  createCart: function() {
-    this.cart = new CartItems();
-    console.log(this.cart.toJSON());
-    this.cart.view = new CartView({
-      collection: this.cart
-    });
+  readCartStorage: function() {
+    var stored_cart = JSON.parse(localStorage.getItem("cart"));
+    console.log(stored_cart);
+    // reset the cart collection with the stored_cart data
+    this.reset(stored_cart);
+    this.setTotal().setQuantity();
   },
-  updateStorage: function() {
+  updateCartStorage: function() {
     localStorage.setItem("cart", JSON.stringify(this.cart.toJSON()));
   },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
     this.on("add_to_cart", this.cart.addItem.bind(this.cart));
-    $(window).on("unload", this.updateStorage.bind(this));
+    $(window).on("unload", this.updateCartStorage.bind(this));
   },
 };
 
