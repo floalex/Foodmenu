@@ -38,5 +38,5 @@ Handlebars.registerHelper("format_price", function(price) {
 });
 
 Handlebars.registerHelper('convert_to_kcal', function(energy) {
- return Number(energy) * 0.239006;
+ return (Number(energy) * 0.239006).toFixed(4);
 });
