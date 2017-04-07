@@ -4,7 +4,7 @@ var App = {
   indexView: function() {
     this.index = new IndexView();
     this.renderAll();
-    // this.createCart();
+    this.createCart();
     this.bindEvents();
   },
   renderAll: function() {
@@ -23,13 +23,18 @@ var App = {
   },
   createCart: function() {
     this.cart = new CartItems();
+    console.log(this.cart.toJSON());
     this.cart.view = new CartView({
       collection: this.cart
     });
   },
+  updateStorage: function() {
+    localStorage.setItem("cart", JSON.stringify(this.cart.toJSON()));
+  },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
-    // this.on("add_to_cart", this.cart.addItem.bind(this.cart));
+    this.on("add_to_cart", this.cart.addItem.bind(this.cart));
+    $(window).on("unload", this.updateStorage.bind(this));
   },
 };
 
