@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    // "start": "nodemon ./bin/www",   // development
-    "start": "node ./bin/www",        // production
+    "start": "node ./bin/www",        
     "test": "jasmine-node spec --autotest --color --watch"
   },
   "dependencies": {
