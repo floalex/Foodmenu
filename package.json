@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    // "start": "nodemon ./bin/www",   // development
+    "start": "node ./bin/www",        // production
     "test": "jasmine-node spec --autotest --color --watch"
   },
   "dependencies": {
@@ -26,5 +27,8 @@
     "grunt-contrib-uglify": "^2.2.0",
     "grunt-contrib-watch": "^1.0.0",
     "nodemon": "^1.11.0"
+  },
+  "engines": {
+    "node": "5.7.0"
   }
 }
