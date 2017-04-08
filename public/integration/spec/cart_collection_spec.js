@@ -4,7 +4,7 @@ describe('Cart Collection', function () {
     this.menu = new Menu(items_scaffold);
   });
   
-  it('can add cart items', function() {
+  it('can add all items from the menu to the car', function() {
     this.menu.each(function(item) {
       this.cart.addItem(item);
     }, this);
@@ -18,10 +18,10 @@ describe('Cart Collection', function () {
   });
   
   it('can update the quantity of a specific item in the cart', function() {
-    this.cart.addItem(this.items.first());
-    expect(this.cart.get('quantity')).toBe(1);
-    this.cart.addItem(this.items.first());
-    expect(this.cart.get('quantity')).toBe(2);
+    this.cart.addItem(this.menu.first());
+    expect(this.cart.first().get('quantity')).toBe(1);
+    this.cart.addItem(this.menu.first());
+    expect(this.cart.first().get('quantity')).toBe(2);
   });
   
 });

@@ -4,12 +4,13 @@ var App = {
   indexView: function() {
     this.index = new IndexView();
     this.renderAll();
-    this.bindEvents();
+    this.renderCart();
   },
   renderAll: function() {
     this.menu.each(this.addFoodIndexView);
   },
   renderFoodItem: function(id) {
+    this.renderCart();
     var item = this.menu.get(id);
     new foodItemView({
       model: item
@@ -20,21 +21,19 @@ var App = {
       model: item
     });
   },
-  readCartStorage: function() {
-    var stored_cart = JSON.parse(localStorage.getItem("cart"));
-    console.log(stored_cart);
-    // reset the cart collection with the stored_cart data
-    this.reset(stored_cart);
-    this.setTotal().setQuantity();
+  renderCart: function() {
+    this.cart.view.render();
+  },
+  checkoutView: function() {
+    $("#cart").hide();
+    new CheckoutView({ collection: this.cart });
   },
   updateCartStorage: function() {
     localStorage.setItem("cart", JSON.stringify(this.cart.toJSON()));
   },
-  bindEvents: function() {
-    _.extend(this, Backbone.Events);
-    $(window).on("unload", this.updateCartStorage.bind(this));
-  },
 };
+
+$(window).on("unload", App.updateCartStorage.bind(App));
 
 Handlebars.registerHelper("format_price", function(price) {
   return (+price).toFixed(2);

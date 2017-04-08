@@ -1,12 +1,20 @@
 var router = new (Backbone.Router.extend({
   routes: {
+    "menu": "menuView",
     "menu/:id": "foodDetails",
+    "checkout": "checkoutView",
   },
   index: function() { 
     App.indexView(); 
   },
+  menuView: function() {
+    App.indexView();
+  },
   foodDetails: function(id) {
     App.renderFoodItem(Number(id));
+  },
+  checkoutView: function() {
+    App.checkoutView();
   },
   initialize: function() {
     this.route(/^\/?$/, "index", this.index);
