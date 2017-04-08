@@ -8,4 +8,5 @@ module.exports = function(router) {
       menu_items: Menu.get()
     });
   });
+  
 };

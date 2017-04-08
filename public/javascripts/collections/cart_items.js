@@ -15,6 +15,14 @@ var CartItems = Backbone.Collection.extend({
     return this;
   },
   getQuantity: function() { return this.quantity; },
+  updateQuantity: function(data) {
+    var item = this.get(data.id);
+    if (data.quantity <= 0) {
+      this.destroy(data.id);
+    }
+    item.set('quantity', data.quantity);
+    this.update();
+  },
   readStorage: function() {
     var stored_cart = JSON.parse(localStorage.getItem("cart"));
     console.log(stored_cart);
@@ -54,5 +62,6 @@ var CartItems = Backbone.Collection.extend({
     this.on('add_to_cart', this.addItem);
     this.on("destroy", this.destroy);
     this.on("empty", this.empty);
+    this.on('update_quantity', this.updateQuantity);
   }
 });
