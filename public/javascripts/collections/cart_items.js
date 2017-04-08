@@ -51,6 +51,7 @@ var CartItems = Backbone.Collection.extend({
   },
   initialize: function() {
     this.readStorage();
+    this.on('add_to_cart', this.addItem);
     this.on("destroy", this.destroy);
     this.on("empty", this.empty);
   }

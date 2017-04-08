@@ -32,7 +32,6 @@ var App = {
   },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
-    this.on("add_to_cart", this.cart.addItem.bind(this.cart));
     $(window).on("unload", this.updateCartStorage.bind(this));
   },
 };

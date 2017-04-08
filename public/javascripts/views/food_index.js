@@ -18,7 +18,7 @@ var foodIndexView = Backbone.View.extend({
   addToCart: function(e) {
     e.preventDefault();
     // sends the model to the cart collection
-    App.trigger("add_to_cart", this.model);
+    App.cart.trigger("add_to_cart", this.model);
   },
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
