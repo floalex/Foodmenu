@@ -34,7 +34,7 @@ var CheckoutView = Backbone.View.extend({
       checkout_total: App.cart.getTotal()
     }));
     App.el.html(this.$el);
-    // without delegateEvents, can only update quantty once
+    // without delegateEvents, can only update quantity once
     this.delegateEvents();
   },
   initialize: function () {
